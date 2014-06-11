@@ -21,7 +21,7 @@ class DispatcherSpec extends ObjectBehavior
         $this->addListener('EventName', $listener);
         $this->hasListeners('EventName')->shouldReturn(true);
 
-        $this->addListener('OtherEventName', $listener);
+        $this->addListener('OtherEventName', 'BigName\EventDispatcher\Stubs\SendEmailListener');
         $this->hasListeners('OtherEventName')->shouldReturn(true);
     }
 
