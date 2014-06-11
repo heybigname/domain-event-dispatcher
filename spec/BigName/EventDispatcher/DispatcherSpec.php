@@ -66,4 +66,9 @@ class DispatcherSpec extends ObjectBehavior
         $listener->handle($event)->shouldHaveBeenCalled();
         $otherListener->handle($otherEvent)->shouldHaveBeenCalled();
     }
+
+    function it_dispatches_with_an_empty_array()
+    {
+        $this->dispatch([]);
+    }
 }
