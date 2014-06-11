@@ -35,12 +35,12 @@ class DispatcherSpec extends ObjectBehavior
         $this->addListener('EventName', $listener);
         $this->addListener('EventName', $listener);
         $this->getListeners('EventName')->shouldHaveCount(2);
+        $this->getListeners('EventName')->shouldBeArray();
     }
 
     function it_returns_an_empty_array_when_no_listeners_found()
     {
         $this->getListeners('EventName')->shouldHaveCount(0);
-        $this->getListeners('EventName')->shouldBeArray();
     }
 
     function it_dispatches_one_event(Listener $listener)
