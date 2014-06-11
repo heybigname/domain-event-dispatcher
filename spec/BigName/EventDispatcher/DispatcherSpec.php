@@ -2,10 +2,12 @@
 
 namespace spec\BigName\EventDispatcher;
 
+use BigName\EventDispatcher\Stubs\ReportSent;
+use BigName\EventDispatcher\Stubs\UserCreated;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use BigName\EventDispatcher\Listener;
-use BigName\EventDispatcher\Event;
+use Prophecy\Prophet;
 
 class DispatcherSpec extends ObjectBehavior
 {
@@ -41,13 +43,27 @@ class DispatcherSpec extends ObjectBehavior
         $this->getListeners('EventName')->shouldBeArray();
     }
 
-    function it_dispatches_one_event(Event $event)
+    function it_dispatches_one_event(Listener $listener)
     {
+        $this->addListener('UserCreated', $listener);
+
+        $event = new UserCreated;
         $this->dispatch($event);
+
+        $listener->handle($event)->shouldHaveBeenCalled();
     }
 
-    function it_dispatches_multiple_events(Event $event)
+    function it_dispatches_multiple_events(Listener $listener, Listener $otherListener)
     {
-        $this->dispatch([$event, $event]);
+        $this->addListener('UserCreated', $listener);
+        $this->addListener('ReportSent', $otherListener);
+
+        $event = new UserCreated;
+        $otherEvent = new ReportSent;
+
+        $this->dispatch([$event, $otherEvent]);
+
+        $listener->handle($event)->shouldHaveBeenCalled();
+        $otherListener->handle($otherEvent)->shouldHaveBeenCalled();
     }
 }

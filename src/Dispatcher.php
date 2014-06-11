@@ -22,8 +22,26 @@ class Dispatcher
         return $this->listeners[$name];
     }
 
-    public function dispatch($event)
+    public function dispatch($events)
     {
+        if (is_array($events)) {
+            $this->fireEvents($events);
+            return;
+        }
+        $this->fireEvent($events);
+    }
 
+    private function fireEvents(array $events)
+    {
+        foreach ($events as $event) {
+            $this->fireEvent($event);
+        }
+    }
+
+    private function fireEvent(Event $event)
+    {
+        foreach ($this->getListeners($event->getName()) as $listener) {
+            $listener->handle($event);
+        }
     }
 }

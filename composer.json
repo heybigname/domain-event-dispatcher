@@ -1,5 +1,5 @@
 {
-    "name": "mitch/event-dispatcher",
+    "name": "bigname/event-dispatcher",
     "description": "Event Dispatcher with a focus on Domain Events",
     "license": "MIT",
     "authors": [
@@ -14,16 +14,16 @@
     },
     "autoload": {
         "psr-4": {
-            "Mitch\\EventDispatcher\\": "src/"
+            "BigName\\EventDispatcher\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BigName\\EventDispatcher\\Stubs\\": "stubs/"
         }
     },
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "dev",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.1.x-dev"
-        }
-    }
+    "minimum-stability": "dev"
 }
