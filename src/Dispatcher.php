@@ -40,7 +40,7 @@ class Dispatcher
 
     private function fireEvent(Event $event)
     {
-        foreach ($this->getListeners($event->getName()) as $listener) {
+        foreach ($this->listeners[$event->getName()] as $listener) {
             $listener->handle($event);
         }
     }

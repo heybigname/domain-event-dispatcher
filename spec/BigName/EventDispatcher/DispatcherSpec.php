@@ -7,7 +7,6 @@ use BigName\EventDispatcher\Stubs\UserCreated;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use BigName\EventDispatcher\Listener;
-use Prophecy\Prophet;
 
 class DispatcherSpec extends ObjectBehavior
 {
