@@ -4,8 +4,9 @@ class Dispatcher
 {
     private $listeners = [];
 
-    public function addListener($name, Listener $listener)
+    public function addListener($name, $listener)
     {
+        $this->isValidListener($listener);
         $this->listeners[$name][] = $listener;
     }
 
@@ -42,6 +43,13 @@ class Dispatcher
     {
         foreach ($this->getListeners($event->getName()) as $listener) {
             $listener->handle($event);
+        }
+    }
+
+    private function isValidListener($listener)
+    {
+        if ( ! ($listener instanceof Listener || is_string($listener))) {
+            throw new ListenerIsNotValid;
         }
     }
 }

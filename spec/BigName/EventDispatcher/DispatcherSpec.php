@@ -2,6 +2,7 @@
 
 namespace spec\BigName\EventDispatcher;
 
+use BigName\EventDispatcher\ListenerIsNotValid;
 use BigName\EventDispatcher\Stubs\ReportSent;
 use BigName\EventDispatcher\Stubs\UserCreated;
 use PhpSpec\ObjectBehavior;
@@ -22,6 +23,11 @@ class DispatcherSpec extends ObjectBehavior
 
         $this->addListener('OtherEventName', $listener);
         $this->hasListeners('OtherEventName')->shouldReturn(true);
+    }
+
+    function it_does_not_accept_invalid_listeners()
+    {
+        $this->shouldThrow(new ListenerIsNotValid)->duringAddListener('EventName', 123);
     }
 
     function it_has_no_listeners()
