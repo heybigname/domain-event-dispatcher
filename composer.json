@@ -19,7 +19,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "BigName\\EventDispatcher\\Stubs\\": "stubs/"
+            "BigName\\EventDispatcher\\Stubs\\": "spec/stubs/"
         }
     },
     "config": {
