@@ -1,1 +1,0 @@
-{"nfs":{"vagrant-root":{"id":"vagrant-root","nfs":true,"guestpath":"/vagrant","hostpath":"/Users/mitchell/Sites/event-dispatcher","disabled":false,"type":"nfs","map_uid":501,"map_gid":20,"nfs_udp":true,"nfs_version":3,"uuid":"2904304401"}}}
