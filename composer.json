@@ -1,0 +1,29 @@
+{
+    "name": "mitch/event-dispatcher",
+    "description": "Event Dispatcher with a focus on Domain Events",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mitchell van Wijngaarden",
+            "email": "mitchell@kooding.nl"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "phpspec/phpspec": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mitch\\EventDispatcher\\": "src/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}

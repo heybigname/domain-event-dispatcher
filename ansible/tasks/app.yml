@@ -1,0 +1,4 @@
+---
+
+- name: App | Composer install
+  command: composer install chdir={{ root_folder }}

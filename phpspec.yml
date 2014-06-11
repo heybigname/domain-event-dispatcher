@@ -1,0 +1,7 @@
+---
+suites:
+  event_dispatcher_suite:
+    namespace: BigName\EventDispatcher
+    psr4_prefix: BigName\EventDispatcher
+
+formatter.name: pretty
