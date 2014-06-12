@@ -8,7 +8,7 @@ Begin by installing the package through Composer. Edit your project's `composer.
 
   ```php
   "require": {
-    "heybigname/event-dispatcher": "0.1.*"
+    "heybigname/event-dispatcher": "1.*"
   }
   ```
 
