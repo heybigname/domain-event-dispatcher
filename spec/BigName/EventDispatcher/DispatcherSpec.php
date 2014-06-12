@@ -28,6 +28,10 @@ class DispatcherSpec extends ObjectBehavior
     function it_does_not_accept_invalid_listeners()
     {
         $this->shouldThrow(new ListenerIsNotValid)->duringAddListener('EventName', 123);
+        $this->shouldThrow(new ListenerIsNotValid)->duringAddListener('EventName', []);
+        $this->shouldThrow(new ListenerIsNotValid)->duringAddListener('EventName', 12.3);
+        $this->shouldThrow(new ListenerIsNotValid)->duringAddListener('EventName', function() {});
+        $this->shouldThrow(new ListenerIsNotValid)->duringAddListener('EventName', new \stdClass);
     }
 
     function it_has_no_listeners()
