@@ -1,8 +1,17 @@
 <?php namespace BigName\EventDispatcher;
 
+use BigName\EventDispatcher\Containers\Container;
+
 class Dispatcher
 {
     private $listeners = [];
+    private $container;
+
+    public function __construct(Container $container = null)
+    {
+        $this->container = $container;
+    }
+
 
     public function addListener($name, $listener)
     {
@@ -20,7 +29,12 @@ class Dispatcher
         if ( ! $this->hasListeners($name)) {
             return [];
         }
-        return $this->listeners[$name];
+        return array_map(function($listener) {
+            if (is_string($listener)) {
+                $listener = $this->container->make($listener);
+            }
+            return $listener;
+        }, $this->listeners[$name]);
     }
 
     public function dispatch($events)

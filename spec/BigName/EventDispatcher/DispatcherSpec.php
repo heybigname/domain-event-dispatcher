@@ -2,15 +2,25 @@
 
 namespace spec\BigName\EventDispatcher;
 
+use BigName\EventDispatcher\Containers\Container;
+use BigName\EventDispatcher\Event;
+use BigName\EventDispatcher\Listener;
 use BigName\EventDispatcher\ListenerIsNotValid;
 use BigName\EventDispatcher\Stubs\ReportSent;
+use BigName\EventDispatcher\Stubs\StubListener;
 use BigName\EventDispatcher\Stubs\UserCreated;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use BigName\EventDispatcher\Listener;
 
 class DispatcherSpec extends ObjectBehavior
 {
+    function let(Container $container)
+    {
+        $container->make(Argument::type('string'))->willReturn(new StubListener);
+
+        $this->beConstructedWith($container);
+    }
+
     function it_is_initializable()
     {
         $this->shouldHaveType('BigName\EventDispatcher\Dispatcher');
@@ -79,5 +89,12 @@ class DispatcherSpec extends ObjectBehavior
     function it_dispatches_with_an_empty_array()
     {
         $this->dispatch([]);
+    }
+
+    function it_dispatches_with_a_container_created_listener(Event $event)
+    {
+        $this->addListener('EventName', 'BigName\EventDispatcher\Stubs\StubListener');
+        $event->getName()->willReturn('EventName');
+        $this->dispatch($event);
     }
 }
