@@ -39,11 +39,16 @@ use BigName\EventDispatcher\Event;
 
 class MemberWasRegistered implements Event
 {
-    public $member;
+    private $member;
 
     public function __construct($member)
     {
         $this->member = $member;
+    }
+
+    public function getMember()
+    {
+        return $this->member;
     }
 
     public function getName()
