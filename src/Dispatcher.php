@@ -1,6 +1,6 @@
 <?php namespace BigName\EventDispatcher;
 
-use Illuminate\Container\Container;
+use BigName\EventDispatcher\Containers\Container;
 
 class Dispatcher
 {

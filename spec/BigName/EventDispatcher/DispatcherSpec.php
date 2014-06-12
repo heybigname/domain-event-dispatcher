@@ -2,7 +2,7 @@
 
 namespace spec\BigName\EventDispatcher;
 
-use Illuminate\Container\Container;
+use BigName\EventDispatcher\Containers\Container;
 use BigName\EventDispatcher\Event;
 use BigName\EventDispatcher\Listener;
 use BigName\EventDispatcher\ListenerIsNotValid;
