@@ -1,5 +1,9 @@
 # Event Dispatcher
 
+[![Latest Stable Version](https://poser.pugx.org/heybigname/event-dispatcher/version.png)](https://packagist.org/packages/heybigname/event-dispatcher)
+[![License](https://poser.pugx.org/heybigname/event-dispatcher/license.png)](https://packagist.org/packages/heybigname/event-dispatcher)
+[![Total Downloads](https://poser.pugx.org/heybigname/event-dispatcher/downloads.png)](https://packagist.org/packages/heybigname/event-dispatcher)
+
 An Event Dispatcher built with a focus on Domain Events.
 
 ## Installation
