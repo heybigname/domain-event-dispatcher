@@ -26,9 +26,9 @@ Next use Composer to update your project from the the Terminal:
 
 ### Event
 In your domain you'll create an event, for let's say when a new member has been registered.
-Lets call this event `MemberWasRegistered`. This event will hold the necessary information for the listener to fulfill it's job.
+Lets call this event `MemberWasRegistered`. This event will hold the necessary information for the listener to fulfill it's job
 You have complete freedom about which arguments it takes, since you'll be the one passing them in.
-In some ways this event is a `Date Transfer Object` (DTO).
+In some ways this event is a `Data Transfer Object` (DTO).
 
 For example:
 
