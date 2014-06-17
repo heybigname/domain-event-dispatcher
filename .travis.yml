@@ -10,4 +10,4 @@ before_script:
 
 script: bin/phpspec run -fpretty -v
 
-#after_script: bin/coveralls -v
+after_script: bin/coveralls -v
