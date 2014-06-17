@@ -1,6 +1,6 @@
 {
     "name": "heybigname/event-dispatcher",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "Event Dispatcher with a focus on Domain Events",
     "license": "MIT",
     "authors": [
