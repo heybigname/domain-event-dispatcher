@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1403027861">
+  <project timestamp="1403027861">
+    <package name="BigName\EventDispatcher\Containers">
+      <file name="/vagrant/src/Containers/LaravelContainer.php">
+        <class name="LaravelContainer" namespace="BigName\EventDispatcher\Containers">
+          <metrics methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
+        </class>
+        <line num="10" type="method" name="__construct" crap="1" count="3"/>
+        <line num="12" type="stmt" count="3"/>
+        <line num="13" type="stmt" count="3"/>
+        <line num="15" type="method" name="make" crap="2" count="2"/>
+        <line num="17" type="stmt" count="2"/>
+        <line num="18" type="stmt" count="1"/>
+        <line num="20" type="stmt" count="1"/>
+        <metrics loc="22" ncloc="22" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
+      </file>
+    </package>
+    <package name="BigName\EventDispatcher">
+      <file name="/vagrant/src/Dispatcher.php">
+        <class name="Dispatcher" namespace="BigName\EventDispatcher">
+          <metrics methods="12" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="31" elements="43" coveredelements="43"/>
+        </class>
+        <line num="11" type="method" name="__construct" crap="1" count="15"/>
+        <line num="13" type="stmt" count="15"/>
+        <line num="14" type="stmt" count="15"/>
+        <line num="17" type="method" name="addListener" crap="1" count="5"/>
+        <line num="19" type="stmt" count="5"/>
+        <line num="20" type="stmt" count="5"/>
+        <line num="22" type="method" name="addLazyListener" crap="2" count="5"/>
+        <line num="24" type="stmt" count="5"/>
+        <line num="25" type="stmt" count="1"/>
+        <line num="27" type="stmt" count="4"/>
+        <line num="28" type="stmt" count="4"/>
+        <line num="30" type="method" name="hasListeners" crap="1" count="9"/>
+        <line num="32" type="stmt" count="9"/>
+        <line num="35" type="method" name="hasLazyListeners" crap="1" count="8"/>
+        <line num="37" type="stmt" count="8"/>
+        <line num="40" type="method" name="getAnyListeners" crap="1" count="5"/>
+        <line num="42" type="stmt" count="5"/>
+        <line num="45" type="method" name="getListeners" crap="2" count="7"/>
+        <line num="47" type="stmt" count="7"/>
+        <line num="48" type="stmt" count="3"/>
+        <line num="50" type="stmt" count="4"/>
+        <line num="53" type="method" name="getLazyListeners" crap="2" count="7"/>
+        <line num="55" type="stmt" count="7"/>
+        <line num="56" type="stmt" count="4"/>
+        <line num="58" type="method" name="anonymous function" crap="1" count="3"/>
+        <line num="59" type="stmt" count="3"/>
+        <line num="60" type="stmt" count="3"/>
+        <line num="63" type="method" name="dispatch" crap="2" count="4"/>
+        <line num="65" type="stmt" count="4"/>
+        <line num="66" type="stmt" count="2"/>
+        <line num="67" type="stmt" count="2"/>
+        <line num="69" type="stmt" count="2"/>
+        <line num="70" type="stmt" count="2"/>
+        <line num="72" type="method" name="fireEvents" crap="2" count="2"/>
+        <line num="74" type="stmt" count="2"/>
+        <line num="75" type="stmt" count="1"/>
+        <line num="76" type="stmt" count="2"/>
+        <line num="77" type="stmt" count="2"/>
+        <line num="79" type="method" name="fireEvent" crap="2" count="3"/>
+        <line num="81" type="stmt" count="3"/>
+        <line num="82" type="stmt" count="3"/>
+        <line num="83" type="stmt" count="3"/>
+        <line num="84" type="stmt" count="3"/>
+        <metrics loc="85" ncloc="85" classes="1" methods="12" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="31" elements="43" coveredelements="43"/>
+      </file>
+    </package>
+    <metrics files="2" loc="107" ncloc="107" classes="2" methods="14" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="36" elements="50" coveredelements="50"/>
+  </project>
+</coverage>

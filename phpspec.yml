@@ -5,3 +5,10 @@ suites:
     psr4_prefix: BigName\EventDispatcher
 
 formatter.name: pretty
+
+extensions:
+    - PhpSpec\Extension\CodeCoverageExtension
+
+code_coverage:
+  format: clover
+  output: coverage.xml
