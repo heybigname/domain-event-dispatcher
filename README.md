@@ -124,7 +124,7 @@ $dispatcher = new Dispatcher($container);
 $dispatcher->addLazyListener('MemberWasRegistered', 'Domain\Accounts\EventListeners\WelcomeNewlyRegisteredMemberListener');
 ```
 
-This will construct and instantiate the listener(s) on `dispatch()` or `getListeners()`.
+This will construct and instantiate the listener(s) on `dispatch()` or `getLazyListeners()`.
 Lazy loading listeners can help mitigate the overhead if you have all your listeners instantiated on bootstrap.
 
 ### Dispatching multiple
