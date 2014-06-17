@@ -3,7 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/heybigname/event-dispatcher/version.png)](https://packagist.org/packages/heybigname/event-dispatcher)
 [![License](https://poser.pugx.org/heybigname/event-dispatcher/license.png)](https://packagist.org/packages/heybigname/event-dispatcher)
 [![Build Status](https://travis-ci.org/heybigname/backup-manager.svg?branch=master)](https://travis-ci.org/heybigname/backup-manager)
-[![Coverage Status](https://img.shields.io/coveralls/heybigname/event-dispatcher.svg)](https://coveralls.io/r/heybigname/event-dispatcher)
+[![Coverage Status](https://coveralls.io/repos/heybigname/event-dispatcher/badge.png?branch=master)](https://coveralls.io/r/heybigname/event-dispatcher?branch=master)
 [![Total Downloads](https://poser.pugx.org/heybigname/event-dispatcher/downloads.png)](https://packagist.org/packages/heybigname/event-dispatcher)
 
 An Event Dispatcher built with a focus on Domain Events.
