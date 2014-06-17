@@ -1,6 +1,9 @@
 /vendor
+/ansible
+/bin
 composer.phar
 composer.lock
 .DS_Store
 .idea
 .vagrant
+.phpspec
