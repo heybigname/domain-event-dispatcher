@@ -1,9 +1,13 @@
 language: php
 
-php: [5.4, 5.5]
+php:
+  - 5.4
+  - 5.5
 
 before_script:
   - composer self-update
-  - composer install --dev --prefer-source
+  - composer install --prefer-source
 
 script: bin/phpspec run -fpretty -v
+
+#after_script: bin/coveralls -v
