@@ -4,6 +4,7 @@ namespace spec\BigName\EventDispatcher;
 
 use BigName\EventDispatcher\Containers\Container;
 use BigName\EventDispatcher\Event;
+use BigName\EventDispatcher\LazyListenersIsNotValid;
 use BigName\EventDispatcher\Listener;
 use BigName\EventDispatcher\ListenerIsNotValid;
 use BigName\EventDispatcher\Stubs\ReportSent;
@@ -26,22 +27,27 @@ class DispatcherSpec extends ObjectBehavior
         $this->shouldHaveType('BigName\EventDispatcher\Dispatcher');
     }
 
-    function it_allows_to_add_a_listener(Listener $listener)
+    function it_allows_to_add_listeners(Listener $listener)
     {
         $this->addListener('EventName', $listener);
         $this->hasListeners('EventName')->shouldReturn(true);
-
-        $this->addListener('OtherEventName', 'BigName\EventDispatcher\Stubs\SendEmailListener');
+        $this->addListener('OtherEventName', $listener);
         $this->hasListeners('OtherEventName')->shouldReturn(true);
     }
 
-    function it_does_not_accept_invalid_listeners()
+    function it_allows_to_add_lazy_listeners()
     {
-        $this->shouldThrow(new ListenerIsNotValid)->duringAddListener('EventName', 123);
-        $this->shouldThrow(new ListenerIsNotValid)->duringAddListener('EventName', []);
-        $this->shouldThrow(new ListenerIsNotValid)->duringAddListener('EventName', 12.3);
-        $this->shouldThrow(new ListenerIsNotValid)->duringAddListener('EventName', function() {});
-        $this->shouldThrow(new ListenerIsNotValid)->duringAddListener('EventName', new \stdClass);
+        $this->addLazyListener('EventName', 'BigName\EventDispatcher\Stubs\StubListener');
+        $this->hasLazyListeners('EventName')->shouldReturn(true);
+    }
+
+    function it_throws_when_adding_an_invalid_lazy_listener()
+    {
+        $this->shouldThrow(new LazyListenersIsNotValid)->duringAddLazyListener('EventName', 123);
+        $this->shouldThrow(new LazyListenersIsNotValid)->duringAddLazyListener('EventName', []);
+        $this->shouldThrow(new LazyListenersIsNotValid)->duringAddLazyListener('EventName', 12.3);
+        $this->shouldThrow(new LazyListenersIsNotValid)->duringAddLazyListener('EventName', null);
+        $this->shouldThrow(new LazyListenersIsNotValid)->duringAddLazyListener('EventName', new \stdClass);
     }
 
     function it_has_no_listeners()
@@ -57,9 +63,35 @@ class DispatcherSpec extends ObjectBehavior
         $this->getListeners('EventName')->shouldBeArray();
     }
 
+    function it_can_get_lazy_listeners()
+    {
+        $this->addLazyListener('EventName', 'BigName\EventDispatcher\Stubs\StubListener');
+        $this->addLazyListener('EventName', 'BigName\EventDispatcher\Stubs\StubListener');
+        $this->getLazyListeners('EventName')->shouldHaveCount(2);
+        $this->getLazyListeners('EventName')->shouldBeArray();
+    }
+
+    function it_can_get_any_listeners(Listener $listener)
+    {
+        $this->addListener('EventName', $listener);
+        $this->addLazyListener('EventName', 'BigName\EventDispatcher\Stubs\StubListener');
+        $this->getAnyListeners('EventName')->shouldHaveCount(2);
+        $this->getAnyListeners('EventName')->shouldBeArray();
+    }
+
     function it_returns_an_empty_array_when_no_listeners_found()
     {
         $this->getListeners('EventName')->shouldHaveCount(0);
+    }
+
+    function it_returns_an_empty_array_when_no_lazy_listeners_found()
+    {
+        $this->getLazyListeners('EventName')->shouldHaveCount(0);
+    }
+
+    function it_returns_an_empty_array_if_there_are_no_listeners_of_any_kind()
+    {
+        $this->getAnyListeners('EventName')->shouldHaveCount(0);
     }
 
     function it_dispatches_one_event(Listener $listener)
@@ -91,9 +123,9 @@ class DispatcherSpec extends ObjectBehavior
         $this->dispatch([]);
     }
 
-    function it_dispatches_with_a_container_created_listener(Event $event)
+    function it_dispatches_with_lazy_listeners(Event $event)
     {
-        $this->addListener('EventName', 'BigName\EventDispatcher\Stubs\StubListener');
+        $this->addLazyListener('EventName', 'BigName\EventDispatcher\Stubs\StubListener');
         $event->getName()->willReturn('EventName');
         $this->dispatch($event);
     }

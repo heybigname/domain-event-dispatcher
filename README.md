@@ -121,7 +121,7 @@ use BigName\EventDispatcher\Containers\LaravelContainer;
 $container = new LaravelContainer(new Container);
 $dispatcher = new Dispatcher($container);
 
-$dispatcher->addListener('MemberWasRegistered', 'Domain\Accounts\EventListeners\WelcomeNewlyRegisteredMemberListener');
+$dispatcher->addLazyListener('MemberWasRegistered', 'Domain\Accounts\EventListeners\WelcomeNewlyRegisteredMemberListener');
 ```
 
 This will construct and instantiate the listener(s) on `dispatch()` or `getListeners()`.

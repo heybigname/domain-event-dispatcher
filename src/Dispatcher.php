@@ -5,6 +5,7 @@ use BigName\EventDispatcher\Containers\Container;
 class Dispatcher
 {
     private $listeners = [];
+    private $lazyListeners = [];
     private $container;
 
     public function __construct(Container $container = null)
@@ -13,10 +14,17 @@ class Dispatcher
     }
 
 
-    public function addListener($name, $listener)
+    public function addListener($name, Listener $listener)
     {
-        $this->isValidListener($listener);
         $this->listeners[$name][] = $listener;
+    }
+
+    public function addLazyListener($name, $listener)
+    {
+        if ( ! is_string($listener)) {
+            throw new LazyListenersIsNotValid;
+        }
+        $this->lazyListeners[$name][] = $listener;
     }
 
     public function hasListeners($name)
@@ -24,17 +32,32 @@ class Dispatcher
         return isset($this->listeners[$name]);
     }
 
+    public function hasLazyListeners($name)
+    {
+        return isset($this->lazyListeners[$name]);
+    }
+
+    public function getAnyListeners($name)
+    {
+        return array_merge($this->getListeners($name), $this->getLazyListeners($name));
+    }
+
     public function getListeners($name)
     {
         if ( ! $this->hasListeners($name)) {
             return [];
         }
+        return $this->listeners[$name];
+    }
+
+    public function getLazyListeners($name)
+    {
+        if ( ! $this->hasLazyListeners($name)) {
+            return [];
+        }
         return array_map(function($listener) {
-            if (is_string($listener)) {
-                $listener = $this->container->make($listener);
-            }
-            return $listener;
-        }, $this->listeners[$name]);
+            return $this->container->make($listener);
+        }, $this->lazyListeners[$name]);
     }
 
     public function dispatch($events)
@@ -55,15 +78,8 @@ class Dispatcher
 
     private function fireEvent(Event $event)
     {
-        foreach ($this->getListeners($event->getName()) as $listener) {
+        foreach ($this->getAnyListeners($event->getName()) as $listener) {
             $listener->handle($event);
-        }
-    }
-
-    private function isValidListener($listener)
-    {
-        if ( ! ($listener instanceof Listener || is_string($listener))) {
-            throw new ListenerIsNotValid;
         }
     }
 }
