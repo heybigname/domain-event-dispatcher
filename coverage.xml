@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1403027861">
-  <project timestamp="1403027861">
+<coverage generated="1403079255">
+  <project timestamp="1403079255">
     <package name="BigName\EventDispatcher\Containers">
       <file name="/vagrant/src/Containers/LaravelContainer.php">
         <class name="LaravelContainer" namespace="BigName\EventDispatcher\Containers">
@@ -67,6 +67,19 @@
         <metrics loc="85" ncloc="85" classes="1" methods="12" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="31" elements="43" coveredelements="43"/>
       </file>
     </package>
-    <metrics files="2" loc="107" ncloc="107" classes="2" methods="14" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="36" elements="50" coveredelements="50"/>
+    <package name="BigName\EventDispatcher\Integrations\Laravel">
+      <file name="/vagrant/src/Integrations/Laravel/ServiceProvider.php">
+        <class name="ServiceProvider" namespace="BigName\EventDispatcher\Integrations\Laravel">
+          <metrics methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
+        </class>
+        <line num="12" type="method" name="register" crap="1" count="1"/>
+        <line num="14" type="stmt" count="1"/>
+        <line num="15" type="stmt" count="1"/>
+        <line num="23" type="method" name="provides" crap="1" count="1"/>
+        <line num="25" type="stmt" count="1"/>
+        <metrics loc="26" ncloc="16" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
+      </file>
+    </package>
+    <metrics files="3" loc="133" ncloc="123" classes="3" methods="16" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="39" coveredstatements="39" elements="55" coveredelements="55"/>
   </project>
 </coverage>

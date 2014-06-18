@@ -11,7 +11,7 @@ class ServiceProvider extends LaravelServiceProvider
      */
     public function register()
     {
-        $this->bind('BigName\EventDispatcher\Containers\Container', 'BigName\EventDispatcher\Containers\LaravelContainer');
+        $this->app->bind('BigName\EventDispatcher\Containers\Container', 'BigName\EventDispatcher\Containers\LaravelContainer');
     }
 
 
