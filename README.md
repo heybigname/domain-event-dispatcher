@@ -8,6 +8,20 @@
 
 An Event Dispatcher built with a focus on Domain Events.
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Integration](#integration)
+- [How It Works](#how-it-works)
+    - [Event](#event)
+    - [Listener](#listener)
+    - [Listening](#listening)
+    - [Lazy Listening](#lazy-listening)
+    - [Dispatching Multiple Events](#dispatching-multiple-events)
+- [Maintainers](#maintainers)
+- [License](#license)
+
+
 ## Installation
 
 Begin by installing the package through Composer. Edit your project's `composer.json` file to require `heybigname/event-dispatcher`.
@@ -23,6 +37,38 @@ Next use Composer to update your project from the the Terminal:
   ```php
   php composer.phar update
   ```
+
+## Integration
+Although this package is completely framework agnostic, it does have integrations with framework(s).
+Currently only Laravel 4.x is included, but if requested others can be added.
+
+### Laravel
+
+To install into a Laravel project, first do the composer install then add the following class to your `config/app.php` service providers list.
+
+```php
+'BigName\EventDispatcher\Integrations\Laravel\ServiceProvider',
+```
+
+That's all it takes for the Laravel integration. Now it's possible to inject or make a Dispatcher like this:
+
+```php
+use BigName\EventDispatcher\Dispatcher;
+
+class RegisterMemberHandler implements Handler
+{
+    private $dispatcher;
+
+    public function __construct(Dispatcher $dispatcher)
+    {
+        $this->dispatcher = $dispatcher;
+    }
+}
+```
+
+```php
+$dispatcher = App::make('BigName\EventDispatcher\Dispatcher');
+```
 
 ## How It Works
 
@@ -128,7 +174,7 @@ $dispatcher->addLazyListener('MemberWasRegistered', 'Domain\Accounts\EventListen
 This will construct and instantiate the listener(s) on `dispatch()` or `getLazyListeners()`.
 Lazy loading listeners can help mitigate the overhead if you have all your listeners instantiated on bootstrap.
 
-### Dispatching multiple
+### Dispatching Multiple Events
 For extra hipster points you can dispatch multiple events in 1 call.
 
 ```php
@@ -147,5 +193,10 @@ $dispatcher = new Dispatcher;
 $dispatcher->dispatch($events);
 ```
 
-## That's it!
-Later tater
+### Maintainers
+
+This package is maintained by Mitchell van Wijngaarden of [Big Name](http://heybigname.com)
+
+### License
+
+This package is licensed under the [MIT license](https://github.com/heybigname/event-dispatcher/blob/master/LICENSE).
