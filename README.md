@@ -11,7 +11,8 @@ An Event Dispatcher built with a focus on Domain Events.
 ## Table of Contents
 
 - [Installation](#installation)
-- [Integration](#integration)
+- [Integrations](#integrations)
+    - [Laravel](#laravel)
 - [How It Works](#how-it-works)
     - [Event](#event)
     - [Listener](#listener)
@@ -38,7 +39,7 @@ Next use Composer to update your project from the the Terminal:
   php composer.phar update
   ```
 
-## Integration
+## Integrations
 Although this package is completely framework agnostic, it does have integrations with framework(s).
 Currently only Laravel 4.x is included, but if requested others can be added.
 
