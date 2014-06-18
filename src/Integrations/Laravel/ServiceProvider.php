@@ -4,11 +4,6 @@ use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
 class ServiceProvider extends LaravelServiceProvider
 {
-    public function boot()
-    {
-        $this->package('heybigname/event-dispatcher', 'event-dispatcher', __DIR__ . '/../../..');
-    }
-
     /**
      * Register the service provider.
      *
