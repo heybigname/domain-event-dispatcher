@@ -1,4 +1,4 @@
-# Event Dispatcher
+# Domain Event Dispatcher
 
 [![Latest Stable Version](https://poser.pugx.org/heybigname/event-dispatcher/version.png)](https://packagist.org/packages/heybigname/event-dispatcher)
 [![License](https://poser.pugx.org/heybigname/event-dispatcher/license.png)](https://packagist.org/packages/heybigname/event-dispatcher)
