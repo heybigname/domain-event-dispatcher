@@ -114,6 +114,7 @@ An event without a listener does no good for us, so lets create an email listene
 <?php namespace Domain\Accounts\EventListeners;
 
 use BigName\EventDispatcher\Listener;
+use BigName\EventDispatcher\Event;
 
 class WelcomeNewlyRegisteredMemberListener implements Listener
 {
