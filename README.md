@@ -25,19 +25,11 @@ An Event Dispatcher built with a focus on Domain Events.
 
 ## Installation
 
-Begin by installing the package through Composer. Edit your project's `composer.json` file to require `heybigname/event-dispatcher`.
+Run the command below to install via Composer
 
-  ```php
-  "require": {
-    "heybigname/event-dispatcher": "1.1.*"
-  }
-  ```
-
-Next use Composer to update your project from the the Terminal:
-
-  ```php
-  php composer.phar update
-  ```
+```shell
+composer require heybigname/event-dispatcher
+```
 
 ## Integrations
 Although this package is completely framework agnostic, it does have integrations with framework(s).
